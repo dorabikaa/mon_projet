@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Liste des écoles avec coordonnées et capacité d'accueil</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<<header>
+        <h1>Repartition des établissements scolaires de Douala
+	<style> h1 {
+					color: red;
+					font-size: 25;
+					font-family: Times New Roman;
+					text-decoration: underline;
+		</style></h1>
+		
+        <nav>
+            <ul>
+              
+                <li><a href="accueil.html">accueil</a></li>
+				<li><a href="part1.html">visualisation des établissements scolaires de Douala</a></li>
+                <li><a href="part2.html">Liste des établissements avec capacités d'accueil</a></li>
+                <li><a href="part3.html">Zones mal desservies en établissements scolaires</a></li>
+            </ul>
+        </nav>
+
+<body>
+    <h2>Liste des établissements scolaires avec capacité d'accueil
+	<style> h2 {
+					color: red;
+					font-size: 20;
+					font-family: Times New Roman;
+					text-decoration: underline;
+		</style>
+	</h2>
+	
+<main>
+		<p>Douala, capitale économique du Cameroun, abrite un nombre important d'établissements scolaires, allant des écoles maternelles aux universités.
+		Cependant, la capacité d'accueil de ces établissements, 
+		ainsi que leur répartition géographique, sont des questions cruciales pour garantir une éducation de qualité à tous les enfants de la ville.
+		</p>
+		<p>Douala dispose d'un réseau scolaire diversifié, comprenant :
+		</p>
+		<p>-Établissements publics: Souvent financés par l'État, ils offrent une éducation accessible à un large public.
+        </p>
+		<p>-Établissements confessionnels: Liés à une religion particulière, ils offrent un enseignement basé sur des valeurs religieuses.
+		</p>
+		<p>-Établissements privés: Proposant généralement un enseignement bilingue ou spécialisé, ils sont souvent plus sélectifs en termes d'effectifs
+		</p>
+		
+		<p>Nous pouvons observer à partir du tableau ci-après:
+		</p>
+			
+</main>		
+    <table>
+        <thead>
+            <tr>
+                <th>Nom de l'école</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
+                <th>Capacité d'accueil</th>
+            </tr>
+        </thead>
+        <tbody id="school-list">
+            <!-- Les données des écoles seront insérées ici -->
+        </tbody>
+    </table>
+
+    <script>
+        // Liste des écoles avec leurs coordonnées (latitude, longitude) et capacité d'accueil
+        var schools = [
+            { name: "IME School", coords: [4.10996, 9.736484], capacity: 500 }, 
+            { name: "Easy school", coords: [4.071568, 9.773465], capacity: 500 }, 
+            { name: "EB L'Emergence", coords: [4.042961, 9.697994], capacity: 700 }, 
+            { name: "EB Royale", coords: [4.071568, 9.74554], capacity: 700 }, 
+            { name: "École publique de DIBOM", coords: [4.031668, 9.748559], capacity: 1000 }, 
+			{ name: "ESIAC", coords: [4.06404, 9.749314], capacity: 1500 }, 
+            { name: "Bonanjo international school", coords: [4.045972, 9.689692], capacity: 500 }, 
+            { name: "ecole publique de Ndogbon", coords: [4.068557,	9.747805], capacity: 500 }, 
+            { name: "ecole publique de cité sic", coords: [4.073074, 9.728182], capacity: 500 }, 
+            { name: "École Ste ANNE", coords: [4.052748, 9.735729], capacity: 500 } ,
+			{ name: "E B de Ndogbon", coords: [4.06931, 9.750069], capacity: 500 }, 
+            { name: "G S B Les Mareuils", coords: [4.077591, 9.748559], capacity: 500 }, 
+            { name: "E M P La bergere", coords: [4.044467, 9.740258], capacity: 500 }, 
+            { name: "E M P Le Petit Monde", coords: [4.075332, 9.722899], capacity: 500 }, 
+            { name: "École Les Meilleurs", coords: [4.047478, 9.783276], capacity: 500 },
+			{ name: "Ecole St Kisito", coords: [4.070063, 9.725163], capacity: 500 }, 
+            { name: "Ecole les Abeilles de ste Rita", coords: [4.070063, 9.765163], capacity: 500 }, 
+            { name: "Ecole Albert Ndogmo", coords: [4.073827, 9.744786], capacity: 500 }, 
+            { name: "E P B La solidarité", coords: [4.076085, 9.746295], capacity: 500 },			
+            { name: "G S B Leo et les Anges", coords: [4.075332, 9.764408], capacity: 500 },
+			{ name: "G S Les Bambinos", coords: [4.067804, 9.751578], capacity: 500 }, 
+            { name: "Ecole Les Laborieux", coords: [4.091894, 9.771201], capacity: 500 }, 
+            { name: "IUG ESG", coords: [4.059523, 9.753842], capacity: 2000 }, 
+            { name: "E P B La Conscience", coords: [4.070063, 9.764408], capacity: 500 }, 
+			{ name: "Collège de la Vallée", coords: [4.070062, 9.764407], capacity: 500 },
+            { name: "E P L B La cité des Merveilles", coords: [4.067804, 9.744031], capacity: 500 }, 
+			{ name: "Ecole Canadienne", coords: [4.051242, 9.77271], capacity: 500 }, 
+            { name: "Ecole publique NKONMONDO", coords: [4.053501, 9.698748], capacity: 500 }, 
+            { name: "E M P B Les Marins", coords: [4.090388, 9.79837], capacity: 500 }, 
+            { name: "ecole bilingue moderne Wafo", coords: [4.09641, 9.731201], capacity: 500 }, 
+            { name: "G S B Universel", coords: [4.019623, 9.795352], capacity: 500 },
+			{ name: "Ecole Primaire Dauphine", coords: [4.067804, 9.746295], capacity: 500 }, 
+            { name: "Ecole catholique St Thomas", coords: [4.061029, 9.761389], capacity: 500 }, 
+            { name: "IUG ISTA", coords: [4.061029, 9.744786], capacity: 500 }, 
+            { name: "Ecole Privée La Volonté", coords: [4.064996, 9.72649], capacity: 500 }, 
+            { name: "E P B Les Métangs", coords: [4.065877, 9.741509], capacity: 500 },
+			{ name: "Ecole PO Mifang", coords: [4.083502, 9.790101], capacity: 500 }, 
+            { name: "Ecole La Fougère", coords: [4.078215, 9.769781], capacity: 500 }, 
+            { name: "Ecole publique de Bonamoussadi", coords: [4.114345, 9.737975], capacity: 500 }, 
+            { name: "E P L KONDI PK8", coords: [4.066759, 9.751228], capacity: 500 },
+			
+			{ name: "ISGET", coords: [4.087027, 9.76713], capacity: 500 }, 
+            { name: "EST La Salle", coords: [4.073809,9.699102], capacity: 500 }, 
+            { name: "Lycée de Cité des palmiers", coords: [4.076452, 9.768897], capacity: 500 }, 
+            { name: "C P L La Roche", coords: [4.059709, 9.752995], capacity: 500 }, 
+            { name: "Collège La Cadenelle", coords: [4.071165, 9.772431], capacity: 500 }, 
+			{ name: "La BERGERONNETTE", coords: [4.057065, 9.761829], capacity: 500 }, 
+            { name: "Le paradis des Anges", coords: [4.103771, 9.749461], capacity: 500 }, 
+            { name: "E P M B La Carina", coords: [4.077334, 9.770664], capacity: 500 }, 
+            { name: "ecole Carina Ndogbon", coords: [4.083502, 9.74681], capacity: 500 }, 
+            { name: "college KAMTCKOUM", coords: [4.052748, 9.735729], capacity: 500 },
+			{ name: "E B de Ndogbon", coords: [4.057065,9.759179], capacity: 500 }, 
+            { name: "G S B Les Mareuils", coords: [4.077591, 9.748559], capacity: 500 }, 
+            { name: "E P L MEWAOU", coords: [4.075571, 9.72384], capacity: 500 }, 
+            { name: "Ecole catholique St Gerard", coords: [4.091434, 9.716772], capacity: 500 }, 
+            { name: "E P B Les Metangs", coords: [4.073809, 9.759179], capacity: 500 },
+			{ name: "Ecole les Ribambelles", coords: [4.04649, 9.696452], capacity: 500 }, 
+            { name: "Collège Wisdom", coords: [4.07469, 9.762713], capacity: 500 }, 
+            { name: "Ecole Américaine de Douala", coords: [4.044727, 9.704403], capacity: 500 }, 
+            { name: "E P d'OYACK", coords: [4.050896, 9.742393], capacity: 500 },			
+            { name: "Ecole les Mouna", coords: [4.075571, 9.78215], capacity: 500 },
+			{ name: "E B Martin Lutter King", coords: [4.087909, 9.72649], capacity: 500 }, 
+            { name: "Ecole primaire Le Chateau", coords: [4.068521, 9.766247], capacity: 500 }, 
+            { name: "GSB DAMANO", coords: [4.07469, 9.769781], capacity: 500 }, 
+            { name: "Campus C ESG", coords: [4.055302, 9.752111], capacity: 500 }, 
+            { name: "Ecole publique de Ndogbong", coords: [4.06764, 9.767131], capacity: 500 }, 
+			{ name: "Ecole publique de Deido", coords: [4.083502, 9.712354], capacity: 500 }, 
+            { name: "Collège ETEUDEM", coords: [4.080859, 9.745927], capacity: 500 }, 
+            { name: "G S B Justine", coords: [4.042964, 9.769781], capacity: 500 }, 
+            { name: "Ecole Monde Uni", coords: [4.091434, 9.752995], capacity: 500 }, 
+            { name: "collège bilingue Le NIL", coords: [4.05989, 9.768735], capacity: 500 } ,
+			{ name: "Rousseau International School", coords: [4.025644, 9.69801], capacity: 500 }, 
+            { name: "Devine International School", coords: [4.069822, 9.722386], capacity: 500 }, 
+            { name: "collège bilingue royal Ndogbong", coords: [4.074616, 9.747449], capacity: 500 }, 
+            { name: "Lycée de Ndoghem", coords: [4.060233, 9.768391], capacity: 500 }, 
+            { name: "E M Emmanuel Victory", coords: [4.070164, 9.765645] , capacity: 500},
+			{ name: "Collège Pascal TOHOUA", coords: [4.043452, 9.761525], capacity: 1500}, 
+            { name: "Ecole publique d'application de Ndogmbe", coords: [4.044137, 9.761525], capacity: 1000 }, 
+            { name: "Ecole publique de Logbessou", coords: [4.090369, 9.782811], capacity: 1000 }, 
+            { name: "ESRI, Douala", coords: [4.036945, 9.725133], capacity: 500 },
+			
+			{ name: "Petite academy International school", coords: [4.095163, 9.733372], capacity: 500 }, 
+            { name: "Collège de L'Agape", coords: [4.056123, 9.736462], capacity: 1500 }, 
+            { name: "E P Les Laities", coords: [4.049617, 9.750195], capacity: 500 }, 
+            { name: "Collège André Malraux", coords: [4.060233, 9.735089], capacity: 1500 }, 
+            { name: "collège NAL", coords: [4.057836, 9.771138], capacity: 1000 }, 
+			{ name: "E P M de L'excellence", coords: [4.083502, 9.712354], capacity: 500 }, 
+            { name: "G S B P L Le Figuier", coords: [4.060233, 9.765988], capacity: 500 }, 
+            { name: "EIEC INFA", coords: [4.084547, 9.748822], capacity: 1000 }, 
+            { name: "Collège DuVaal", coords: [4.090027,9.750539], capacity: 1000 }, 
+            { name: "The bridge international school", coords: [4.101327, 9.734746], capacity: 500 },
+			{ name: "Africa America Academy", coords: [4.040027, 9.689427], capacity: 500 }, 
+            { name: "ecole Grand Monde", coords: [4.074959, 9.763241], capacity: 500 }, 
+            { name: "ecole bilingue public de Kassalafam", coords: [4.051329, 9.722729], capacity: 1000 }, 
+            { name: "ABC Academy", coords: [4.033178, 9.702817], capacity: 500 }, 
+            { name: "ENIC internationalelementary school", coords: [4.067425, 9.742642], capacity: 500 },
+			{ name: "Lycée bilingue de Nyalla", coords: [4.037973, 9.769078], capacity: 1500 }, 
+            { name: "Ecole publique New Bell Bassa", coords: [4.038315, 9.705907], capacity: 1000 }, 
+            { name: "Ecole primaire Experimental", coords: [4.060575, 9.76804], capacity: 500 }, 
+            { name: "Collège De La Salle", coords: [4.066055, 9.703503], capacity: 1500 },
+			
+			
+			{ name: "Ecole internationale Galaxy", coords: [4.088657, 9.752942], capacity: 500 },
+			{ name: "GSB NZEPA", coords: [4.059548, 9.768735], capacity: 800 },
+			{ name: "Collège LIBERMANN", coords: [4.054069, 9.691144], capacity: 1000 },
+			{ name: "GSB LA PORTIQUE", coords: [4.068794, 9.739552], capacity: 800 },
+			{ name: "collège bilingue Adonai", coords: [4.083862, 9.775258], capacity: 1000 },
+			{ name: "Pigier cameroun", coords: [4.065712, 9.707966], capacity: 800 },
+			{ name: "collège Dauphine", coords: [4.06674, 9.749509], capacity: 2000 },
+			{ name: "Collège bilingue La Perfection", coords: [4.060233, 9.769078], capacity: 2000 }
+			
+
+        ];
+
+
+        // Fonction pour afficher la liste des écoles dans le tableau
+        // Afficher la liste des écoles dans le tableau
+        function displaySchools() {
+            var schoolList = document.getElementById('school-list');
+            schools.forEach(function(school) {
+                var row = document.createElement('tr');
+                var nameCell = document.createElement('td');
+                var latitudeCell = document.createElement('td');
+                var longitudeCell = document.createElement('td');
+                var capacityCell = document.createElement('td');
+
+                nameCell.textContent = school.name;
+                latitudeCell.textContent = school.coords[0];
+                longitudeCell.textContent = school.coords[1];
+                capacityCell.textContent = school.capacity;
+
+                row.appendChild(nameCell);
+                row.appendChild(latitudeCell);
+                row.appendChild(longitudeCell);
+                row.appendChild(capacityCell);
+                schoolList.appendChild(row);
+            });
+        }
+
+        // Appeler la fonction pour afficher les écoles
+        displaySchools();
+
+    </script>
+</body>
+</html>

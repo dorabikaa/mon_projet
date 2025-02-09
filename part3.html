@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Quartiers de douala mal desservis en établissements scolaires</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <style>
+        #map {
+            height: 600px;
+            width: 100%;
+        }
+    </style>
+</head>
+<header>
+        <h1>Repartition des établissements scolaires de Douala
+	<style> h1 {
+					color: red;
+					font-size: 25;
+					font-family: Times New Roman;
+					text-decoration: underline;
+		</style></h1>
+		
+        <nav>
+            <ul>
+              
+                <li><a href="accueil.html">accueil</a></li>
+				<li><a href="part1.html">visualisation des établissements scolaires de Douala</a></li>
+                <li><a href="part2.html">Liste des établissements avec capacités d'accueil</a></li>
+                <li><a href="part3.html">Zones mal desservies en établissements scolaires</a></li>
+            </ul>
+        </nav>
+
+<body>
+    <h3>Présentation des zones de Douala mal desservies en établissements scolaires
+	<style> h3 {
+					color: red;
+					font-size: 20;
+					font-family: Times New Roman;
+					text-decoration: underline;
+		</style></h3>
+		
+<main>
+	<p>La question de l'accès à l'éducation dans certains quartiers de Douala est une problématique récurrente. 
+	Si certains quartiers bénéficient d'une offre scolaire dense, d'autres en sont relativement dépourvus. 
+	Cette disparité peut s'expliquer par plusieurs facteurs : </p>
+	<p>--Croissance urbaine rapide: Douala connaît une croissance démographique importante, qui entraîne une urbanisation rapide
+	et parfois anarchique. Certains quartiers, plus récents ou moins densément peuplés, sont moins prioritaires en termes 
+	d'aménagement scolaire. </p>
+	<p>--Inégalités socio-économiques: Les quartiers les plus défavorisés sont souvent ceux qui manquent le plus d'établissements 
+	scolaires. Les ressources financières limitées des familles peuvent également constituer un frein à l'accès à une éducation 
+	de qualité. </p>
+	<p>--Politique d'aménagement du territoire: Les décisions politiques en matière d'urbanisme et d'éducation ont un impact 
+	direct sur la répartition des établissements scolaires. </p>
+</main>	
+
+<h3>Identification des quartiers les moins desservis
+	<style> h3 {
+					font-size: 20;
+					font-family: Times New Roman;
+					text-decoration: underline;
+		</style></h3>
+		
+		
+<main>
+	<p>Il est difficile de donner une liste exhaustive et à jour des quartiers de Douala les moins desservis en établissements scolaires,
+	car la situation évolue en permanence. Cependant, on peut généralement observer que : </p>
+	<p>--Les quartiers périphériques sont souvent moins bien équipés que le centre-ville. </p>
+	<p>--Les zones d'habitat spontané ou les bidonvilles sont particulièrement touchés par ce problème. </p>
+	<p>--Certains arrondissements peuvent concentrer un plus grand nombre de quartiers défavorisés. </p>
+</main>	
+		
+		
+	<!-- Inclusion de l'image -->
+	<img src="images\ecoles_douala.jpeg"
+		alt="Carte de la ville de Douala"
+		width="700"
+		height="500">
+		
+	<p>Cette image montre l'emplacement ds établissements par rapports aux différents arrondissements de Douala.</p>
+	
+<h3>Les quartiers mal desservis
+	<style> h3 {
+					font-size: 20;
+					font-family: Times New Roman;
+					text-decoration: underline;
+		</style></h3>
+
+<p>D'après les recherches que nous avons menées on peut citer entre autres:</p>
+<p>--Mabanda</p>
+<p>--New Priso</p>
+<p>--Sodiko</p>
+<p>--Bonendalè</p>
+<p>--Bonamatoumbe</p>
+<p>--Yassa</p>
+<p>--Douala 2è: soit Bonadouma, Nkoulouloun, New-bell, Bonapriso, Bonadoumbe, Bois des Singes.</p>
+		
+		
+  <div id="map"></div>
+	
+
+    <script>
+        // Initialiser la carte
+        var map = L.map('map').setView([4.05, 9.7], 12);
+
+        // Ajouter une couche de tuiles OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Liste des quartiers de Douala mal desservis avec leurs coordonnées (latitude, longitude)
+        var quartiers = [
+            { name: "Mabanda", coords: [4.0725, 9.65] },
+            { name: "New Priso", coords: [4.048, 9.704] },
+            { name: "Sodiko", coords: [4.09774, 9.66236] },
+            { name: "Bonendalè", coords: [4.1122, 9.6375] },
+            { name: "Bonamatoumbe", coords: [4.11444, 9.67778] },
+            { name: "Yassa", coords: [3.99133, 9.81038] },
+            { name: "Bonadouma", coords: [4.04827, 9.70428] },
+            { name: "Nkoulouloun", coords: [4.0500, 9.7000] },
+            { name: "New-bell", coords: [4.02544, 9.71256] },
+            { name: "Bonapriso", coords: [4.02472, 9.71111] },
+            { name: "Bonadoumbe", coords: [4.02544, 9.71256] },
+            { name: "Bois des Singes", coords: [4.00804, 9.70794] }
+        ];
+
+        // Ajouter les quartiers à la carte avec leurs noms dans les popups
+        quartiers.forEach(function(quartier) {
+            L.marker(quartier.coords).addTo(map)
+                .bindPopup('<b>' + quartier.name + '</b><br>Latitude: ' + quartier.coords[0] + '<br>Longitude: ' + quartier.coords[1]);
+        });
+    </script>
+</body>
+</html>
